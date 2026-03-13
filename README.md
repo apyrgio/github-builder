@@ -247,6 +247,29 @@ on:
 | `meta-tags`            | List     |                                | [List of tags](https://github.com/docker/metadata-action?tab=readme-ov-file#tags-input) as key-value pair attributes                                                                                                                                                                                                                  |
 | `meta-flavor`          | List     |                                | [Flavor](https://github.com/docker/metadata-action?tab=readme-ov-file#flavor-input) defines a global behavior for `meta-tags`                                                                                                                                                                                                         |
 
+> [!TIP]
+> When `output=image`, following inputs support Handlebars templates rendered
+> from selected `docker/metadata-action` outputs:
+> - `annotations`
+> - `build-args`
+> - `labels`
+> 
+> The template context is exposed as `meta` with:
+> - `meta.version`
+> - `meta.tags`
+> 
+> Example:
+> ```yaml
+> jobs:
+>   build:
+>     uses: docker/github-builder/.github/workflows/build.yml@v1
+>     with:
+>       output: image
+>       build-args: |
+>         VERSION={{meta.version}}
+>       meta-images: name/app
+> ```
+
 #### Secrets
 
 | Name             | Default               | Description                                                                    |
@@ -368,6 +391,26 @@ on:
 | `meta-labels`          | List   |                                | [List of custom labels](https://github.com/docker/metadata-action?tab=readme-ov-file#overwrite-labels-and-annotations)                                                                                                                                                                                                                |
 | `meta-annotations`     | List   |                                | [List of custom annotations](https://github.com/docker/metadata-action?tab=readme-ov-file#overwrite-labels-and-annotations)                                                                                                                                                                                                           |
 | `meta-flavor`          | List   |                                | [Flavor](https://github.com/docker/metadata-action?tab=readme-ov-file#flavor-input) defines a global behavior for `meta-tags`                                                                                                                                                                                                         |
+
+> [!TIP]
+> When `output=image`, the `set` input supports Handlebars templates rendered
+> from selected `docker/metadata-action` outputs.
+> 
+> The template context is exposed as `meta` with:
+> - `meta.version`
+> - `meta.tags`
+> 
+> Example:
+> ```yaml
+> jobs:
+>   bake:
+>     uses: docker/github-builder/.github/workflows/bake.yml@v1
+>     with:
+>       output: image
+>       set: |
+>         *.args.VERSION={{meta.version}}
+>       meta-images: name/app
+> ```
 
 #### Secrets
 
