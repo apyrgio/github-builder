@@ -39,6 +39,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello
       meta-images: |
         public.ecr.aws/q3b5f1u4/test-docker-action
@@ -90,6 +92,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         public.ecr.aws/q3b5f1u4/test-docker-action
@@ -160,6 +164,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       sign: false
       target: hello-cross
       meta-images: |
@@ -210,6 +216,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         registry-1-stage.docker.io/docker/github-builder-test
@@ -260,6 +268,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         ghcr.io/docker/github-builder-test
@@ -460,6 +470,8 @@ jobs:
       context: test
       output: image
       push: false
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         public.ecr.aws/q3b5f1u4/test-docker-action
@@ -492,6 +504,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         public.ecr.aws/q3b5f1u4/test-docker-action
@@ -542,6 +556,8 @@ jobs:
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       sbom: true
+      set: |
+        *.args.VERSION={{meta.version}}
       target: hello-cross
       meta-images: |
         registry-1-stage.docker.io/docker/github-builder-test

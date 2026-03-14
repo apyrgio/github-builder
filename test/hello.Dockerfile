@@ -2,7 +2,8 @@
 
 FROM alpine AS base
 ARG TARGETPLATFORM
-RUN echo "Hello, World! This is ${TARGETPLATFORM}" > /hello.txt
+ARG VERSION="unknown"
+RUN echo "Hello, World! This is ${VERSION} running on ${TARGETPLATFORM}" > /hello.txt
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 
 FROM scratch

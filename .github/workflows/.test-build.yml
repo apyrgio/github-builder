@@ -33,6 +33,8 @@ jobs:
       contents: read
       id-token: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       cache: true
       cache-scope: build-aws-single
       file: test/hello.Dockerfile
@@ -84,6 +86,8 @@ jobs:
       contents: read
       id-token: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       cache: true
       cache-scope: build-aws
       file: test/hello.Dockerfile
@@ -154,6 +158,8 @@ jobs:
       contents: read
       id-token: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       cache: true
       cache-scope: build-aws-nosign
       file: test/hello.Dockerfile
@@ -207,6 +213,8 @@ jobs:
       id-token: write
       packages: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       file: test/hello.Dockerfile
       output: image
       platforms: linux/amd64,linux/arm64
@@ -255,6 +263,8 @@ jobs:
       contents: read
       id-token: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       file: test/hello.Dockerfile
       output: image
       platforms: linux/amd64,linux/arm64
@@ -304,6 +314,8 @@ jobs:
       id-token: write
       packages: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       file: test/hello.Dockerfile
       output: image
       platforms: linux/amd64,linux/arm64
@@ -504,6 +516,8 @@ jobs:
       id-token: write
     with:
       runner: amd64
+      build-args: |
+        VERSION={{meta.version}}
       file: test/hello.Dockerfile
       output: image
       platforms: linux/amd64,linux/arm64
@@ -532,6 +546,8 @@ jobs:
       id-token: write
     with:
       distribute: false
+      build-args: |
+        VERSION={{meta.version}}
       cache: true
       cache-scope: build-aws-nodistrib
       file: test/hello.Dockerfile
@@ -570,6 +586,8 @@ jobs:
       contents: read
       id-token: write
     with:
+      build-args: |
+        VERSION={{meta.version}}
       file: test/hello.Dockerfile
       output: image
       platforms: linux/amd64,linux/arm64
